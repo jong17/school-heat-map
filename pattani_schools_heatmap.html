@@ -1,0 +1,1634 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_da41290783ce6e17845793507d471cbf {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+    <script src="https://cdn.jsdelivr.net/gh/python-visualization/folium@main/folium/templates/leaflet_heat.min.js"></script>
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_da41290783ce6e17845793507d471cbf" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_da41290783ce6e17845793507d471cbf = L.map(
+                "map_da41290783ce6e17845793507d471cbf",
+                {
+                    center: [6.8, 101.35],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 9,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_a45cdf121069e4db7503343d19991f5a = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 19,
+  "maxNativeZoom": 19,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_a45cdf121069e4db7503343d19991f5a.addTo(map_da41290783ce6e17845793507d471cbf);
+        
+    
+            var heat_map_5dba45e043a6291acaccf5a5ec8c69ab = L.heatLayer(
+                [[6.8668661, 101.2484847, 429], [6.8722958, 101.2599716, 428], [6.8631779, 101.267748, 2156], [6.8570235, 101.2304008, 244], [6.8038238, 101.2822028, 389], [6.8394062, 101.2742559, 863], [6.8597358, 101.2358615, 1205], [6.8737167, 101.3089114, 1722], [6.8702411, 101.2569005, 488], [6.7295032, 101.1028668, 882], [6.7340939, 101.0973754, 261], [6.6527769, 101.1780739, 671], [6.622727, 101.2009535, 1222], [6.7776469, 101.1593708, 362], [6.7729685, 101.1896751, 910], [6.8449517, 101.1674459, 512], [6.84997, 101.1936, 670], [6.7793771, 101.1787988, 944], [6.869516, 101.2504562, 23], [6.8626241, 101.4850309, 258], [6.7846142, 101.5490975, 696], [6.7665025, 101.4701936, 1364], [6.6398025, 101.3705945, 70], [6.6387803, 101.3742533, 155], [6.8134305, 101.4119679, 225], [6.622962, 101.4361668, 178], [6.7442803, 101.4443611, 49], [6.7602213, 101.3436831, 633], [6.6659631, 101.4127675, 436], [6.6670036, 101.4611388, 1007], [6.646917, 101.472344, 174], [6.5895166, 101.3954451, 142], [6.7006963, 101.4339148, 588], [6.686206, 101.560259, 103], [6.6858119, 101.5812642, 150], [6.6610294, 101.6233178, 610], [6.6923609, 101.5933657, 619], [6.6865628, 101.5867892, 341], [6.6887415, 101.6229638, 1537], [6.7044161, 101.6254274, 340], [6.8676906, 101.3483367, 256], [6.8065813, 101.4255379, 772], [6.7276497, 101.2841955, 1065], [6.784727, 101.2950135, 2036], [6.86978, 101.294836, 1207], [6.7121785, 101.268746, 885], [6.7182812, 101.0881166, 1296], [6.8150044, 101.4066363, 234], [6.869516, 101.2504562, 295], [6.86975, 101.3625422, 116], [6.8032018, 101.1233065, 186], [6.755409, 101.2919707, 56], [6.7487682, 101.3306697, 523], [6.6075668, 101.3477745, 335], [6.7291913, 101.4269681, 250], [6.7608546, 101.035252, 304], [6.8516145, 101.2669466, 244], [6.7367018, 101.3438781, 321], [6.6546196, 101.3026217, 570], [6.6618907, 101.3267995, 794], [6.5959375, 101.3128125, 272], [6.8061861, 101.3397989, 230], [6.644467, 101.4722167, 944], [6.6304107, 101.4414528, 813], [6.8065866, 101.1110933, 286], [6.8806179, 101.2760057, 150], [6.8341642, 101.0777215, 652], [6.6864755, 101.1390878, 387], [6.869516, 101.2504562, 662], [6.7860593, 101.3396465, 566], [6.6911422, 101.5523945, 176], [6.8885692, 101.3839277, 253], [6.7372928, 101.125192, 209], [6.7494957, 101.6076092, 172], [6.8661873, 101.3518904, 325], [6.7640015, 101.1377556, 157], [6.782894, 101.327671, 242], [6.828057, 101.3885001, 531], [6.7628259, 101.4694496, 262], [6.7757681, 101.5119918, 143], [6.6833431, 101.2659498, 113], [6.5955743, 101.520809, 169], [6.8528266, 101.2436478, 799], [6.738824, 101.1567139, 155], [6.9307251, 101.3143883, 65], [6.8701804, 101.2336139, 107], [6.7452873, 101.3801482, 586], [6.8530304, 101.3603279, 442], [6.869516, 101.2504562, 56], [6.7751435, 101.4406442, 48], [6.7029968, 101.2531688, 44], [6.869516, 101.2504562, 69], [6.869516, 101.2504562, 8]],
+                {
+  "minOpacity": 0.5,
+  "maxZoom": 18,
+  "radius": 25,
+  "blur": 15,
+}
+            );
+        
+    
+            heat_map_5dba45e043a6291acaccf5a5ec8c69ab.addTo(map_da41290783ce6e17845793507d471cbf);
+        
+    
+            var feature_group_8a704e3e72e0e148b029f9949a2ebdb7 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var circle_marker_60e029deab282b75b28869914d589d94 = L.circleMarker(
+                [6.8668661, 101.2484847],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(feature_group_8a704e3e72e0e148b029f9949a2ebdb7);
+        
+    
+            circle_marker_60e029deab282b75b28869914d589d94.bindTooltip(
+                `<div>
+                     <b>วรคามินอนุสรณ์</b><br>นักเรียน: 429 คน
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_188e197f5fef0d589fb11fb8948abe6f = L.circleMarker(
+                [6.8722958, 101.2599716],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(feature_group_8a704e3e72e0e148b029f9949a2ebdb7);
+        
+    
+            circle_marker_188e197f5fef0d589fb11fb8948abe6f.bindTooltip(
+                `<div>
+                     <b>แหลมทองอุปถัมภ์</b><br>นักเรียน: 428 คน
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_6d5502c3c0222861007667af62eb5c9c = L.circleMarker(
+                [6.8631779, 101.267748],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 18, "stroke": true, "weight": 3}
+            ).addTo(feature_group_8a704e3e72e0e148b029f9949a2ebdb7);
+        
+    
+            circle_marker_6d5502c3c0222861007667af62eb5c9c.bindTooltip(
+                `<div>
+                     <b>อามานะศักดิ์</b><br>นักเรียน: 2,156 คน
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_2389e2b4c163222e4997a5955e53cbf0 = L.circleMarker(
+                [6.8570235, 101.2304008],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(feature_group_8a704e3e72e0e148b029f9949a2ebdb7);
+        
+    
+            circle_marker_2389e2b4c163222e4997a5955e53cbf0.bindTooltip(
+                `<div>
+                     <b>เจริญศรีศึกษา</b><br>นักเรียน: 244 คน
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_c140649fced19062f30dfbaed4d66bcd = L.circleMarker(
+                [6.8038238, 101.2822028],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(feature_group_8a704e3e72e0e148b029f9949a2ebdb7);
+        
+    
+            circle_marker_c140649fced19062f30dfbaed4d66bcd.bindTooltip(
+                `<div>
+                     <b>บำรุงอิสลาม</b><br>นักเรียน: 389 คน
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_261c223748f45385fd564a92557d4cb0 = L.circleMarker(
+                [6.8394062, 101.2742559],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12, "stroke": true, "weight": 3}
+            ).addTo(feature_group_8a704e3e72e0e148b029f9949a2ebdb7);
+        
+    
+            circle_marker_261c223748f45385fd564a92557d4cb0.bindTooltip(
+                `<div>
+                     <b>พัฒนาอิสลาม</b><br>นักเรียน: 863 คน
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_7e9ef471bbabb99f8d34367a5372f62f = L.circleMarker(
+                [6.8597358, 101.2358615],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 18, "stroke": true, "weight": 3}
+            ).addTo(feature_group_8a704e3e72e0e148b029f9949a2ebdb7);
+        
+    
+            circle_marker_7e9ef471bbabb99f8d34367a5372f62f.bindTooltip(
+                `<div>
+                     <b>เตรียมศึกษาวิทยา</b><br>นักเรียน: 1,205 คน
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_9378ea70a0a5fd063cc4e2cfaf93b851 = L.circleMarker(
+                [6.8737167, 101.3089114],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 18, "stroke": true, "weight": 3}
+            ).addTo(feature_group_8a704e3e72e0e148b029f9949a2ebdb7);
+        
+    
+            circle_marker_9378ea70a0a5fd063cc4e2cfaf93b851.bindTooltip(
+                `<div>
+                     <b>จงรักสัตย์วิทยา</b><br>นักเรียน: 1,722 คน
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_79b01a28bf403d3aef54aa88cb93f0c2 = L.circleMarker(
+                [6.8702411, 101.2569005],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(feature_group_8a704e3e72e0e148b029f9949a2ebdb7);
+        
+    
+            circle_marker_79b01a28bf403d3aef54aa88cb93f0c2.bindTooltip(
+                `<div>
+                     <b>จ้องฮั้ว</b><br>นักเรียน: 488 คน
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_06661153856da681a400766c69654dbb = L.circleMarker(
+                [6.7295032, 101.1028668],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12, "stroke": true, "weight": 3}
+            ).addTo(feature_group_8a704e3e72e0e148b029f9949a2ebdb7);
+        
+    
+            circle_marker_06661153856da681a400766c69654dbb.bindTooltip(
+                `<div>
+                     <b>จิปิภพพิทยา</b><br>นักเรียน: 882 คน
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_88c28dd80b922ab520710f843c4cf6a3 = L.circleMarker(
+                [6.7340939, 101.0973754],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(feature_group_8a704e3e72e0e148b029f9949a2ebdb7);
+        
+    
+            circle_marker_88c28dd80b922ab520710f843c4cf6a3.bindTooltip(
+                `<div>
+                     <b>เพชรชูนุเคราะห์</b><br>นักเรียน: 261 คน
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_8ac0379a43f2ce044718de5a27025bd2 = L.circleMarker(
+                [6.6527769, 101.1780739],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12, "stroke": true, "weight": 3}
+            ).addTo(feature_group_8a704e3e72e0e148b029f9949a2ebdb7);
+        
+    
+            circle_marker_8ac0379a43f2ce044718de5a27025bd2.bindTooltip(
+                `<div>
+                     <b>ซอลีฮียะห์</b><br>นักเรียน: 671 คน
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_1f78df4938d7fd593d4ac6ec39c554ee = L.circleMarker(
+                [6.622727, 101.2009535],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 18, "stroke": true, "weight": 3}
+            ).addTo(feature_group_8a704e3e72e0e148b029f9949a2ebdb7);
+        
+    
+            circle_marker_1f78df4938d7fd593d4ac6ec39c554ee.bindTooltip(
+                `<div>
+                     <b>พีระยานาวินคลองหินวิทยา</b><br>นักเรียน: 1,222 คน
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_86b627d70bf3de6cf659402f55f7c95e = L.circleMarker(
+                [6.7776469, 101.1593708],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(feature_group_8a704e3e72e0e148b029f9949a2ebdb7);
+        
+    
+            circle_marker_86b627d70bf3de6cf659402f55f7c95e.bindTooltip(
+                `<div>
+                     <b>จริยอิสลามศึกษาอนุสรณ์</b><br>นักเรียน: 362 คน
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_e8f6837d702da0772238bbd57f44e942 = L.circleMarker(
+                [6.7729685, 101.1896751],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12, "stroke": true, "weight": 3}
+            ).addTo(feature_group_8a704e3e72e0e148b029f9949a2ebdb7);
+        
+    
+            circle_marker_e8f6837d702da0772238bbd57f44e942.bindTooltip(
+                `<div>
+                     <b>แสงประทีปวิทยา</b><br>นักเรียน: 910 คน
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_0443989fc39d3655252a5bd15e434ddf = L.circleMarker(
+                [6.8449517, 101.1674459],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12, "stroke": true, "weight": 3}
+            ).addTo(feature_group_8a704e3e72e0e148b029f9949a2ebdb7);
+        
+    
+            circle_marker_0443989fc39d3655252a5bd15e434ddf.bindTooltip(
+                `<div>
+                     <b>บากงพิทยา</b><br>นักเรียน: 512 คน
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_130bfaa2749aadbe96426404b6be9855 = L.circleMarker(
+                [6.84997, 101.1936],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12, "stroke": true, "weight": 3}
+            ).addTo(feature_group_8a704e3e72e0e148b029f9949a2ebdb7);
+        
+    
+            circle_marker_130bfaa2749aadbe96426404b6be9855.bindTooltip(
+                `<div>
+                     <b>ศาสน์สามัคคี</b><br>นักเรียน: 670 คน
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_4bb6ac3b718936336eae279e942be109 = L.circleMarker(
+                [6.7793771, 101.1787988],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12, "stroke": true, "weight": 3}
+            ).addTo(feature_group_8a704e3e72e0e148b029f9949a2ebdb7);
+        
+    
+            circle_marker_4bb6ac3b718936336eae279e942be109.bindTooltip(
+                `<div>
+                     <b>มูลนิธิชุมชนอิสลามศึกษา</b><br>นักเรียน: 944 คน
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_35ffb5615d9ae0388dd5688d8c9bfc22 = L.circleMarker(
+                [6.869516, 101.2504562],
+                {"bubblingMouseEvents": true, "color": "gray", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "gray", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(feature_group_8a704e3e72e0e148b029f9949a2ebdb7);
+        
+    
+            circle_marker_35ffb5615d9ae0388dd5688d8c9bfc22.bindTooltip(
+                `<div>
+                     <b>อะเดร์รอซะห์อิสลามียะห์</b><br>นักเรียน: 23 คน
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_a675fcda7fd84c2ef810bc7eafa2dfbd = L.circleMarker(
+                [6.8626241, 101.4850309],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(feature_group_8a704e3e72e0e148b029f9949a2ebdb7);
+        
+    
+            circle_marker_a675fcda7fd84c2ef810bc7eafa2dfbd.bindTooltip(
+                `<div>
+                     <b>อัลยามีอะห์อัลอิสลามียะห์</b><br>นักเรียน: 258 คน
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_3291a3809f64e14d936004e210433b6e = L.circleMarker(
+                [6.7846142, 101.5490975],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12, "stroke": true, "weight": 3}
+            ).addTo(feature_group_8a704e3e72e0e148b029f9949a2ebdb7);
+        
+    
+            circle_marker_3291a3809f64e14d936004e210433b6e.bindTooltip(
+                `<div>
+                     <b>วัฒนธรรมอิสลาม</b><br>นักเรียน: 696 คน
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_54bb049cefe04d669d7f78f8b274c5d7 = L.circleMarker(
+                [6.7665025, 101.4701936],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 18, "stroke": true, "weight": 3}
+            ).addTo(feature_group_8a704e3e72e0e148b029f9949a2ebdb7);
+        
+    
+            circle_marker_54bb049cefe04d669d7f78f8b274c5d7.bindTooltip(
+                `<div>
+                     <b>สมบูรณ์ศาสน์อิสลาม</b><br>นักเรียน: 1,364 คน
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_6457fed172e8a834c875441e586e23a4 = L.circleMarker(
+                [6.6398025, 101.3705945],
+                {"bubblingMouseEvents": true, "color": "gray", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "gray", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(feature_group_8a704e3e72e0e148b029f9949a2ebdb7);
+        
+    
+            circle_marker_6457fed172e8a834c875441e586e23a4.bindTooltip(
+                `<div>
+                     <b>ดรุณมุสลิมวิทยา</b><br>นักเรียน: 70 คน
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_6b451cd71a9782a51bc04093a51f5d7f = L.circleMarker(
+                [6.6387803, 101.3742533],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(feature_group_8a704e3e72e0e148b029f9949a2ebdb7);
+        
+    
+            circle_marker_6b451cd71a9782a51bc04093a51f5d7f.bindTooltip(
+                `<div>
+                     <b>ยุวอิสลามวิทยามูลนิธิ</b><br>นักเรียน: 155 คน
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_45f9852b289998412b3c7baf08bcbe8d = L.circleMarker(
+                [6.8134305, 101.4119679],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(feature_group_8a704e3e72e0e148b029f9949a2ebdb7);
+        
+    
+            circle_marker_45f9852b289998412b3c7baf08bcbe8d.bindTooltip(
+                `<div>
+                     <b>กูตงวิทยา</b><br>นักเรียน: 225 คน
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_f34d255a87c72a9195ab7d72db46cef0 = L.circleMarker(
+                [6.622962, 101.4361668],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(feature_group_8a704e3e72e0e148b029f9949a2ebdb7);
+        
+    
+            circle_marker_f34d255a87c72a9195ab7d72db46cef0.bindTooltip(
+                `<div>
+                     <b>ศาลาฟี</b><br>นักเรียน: 178 คน
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_f4af257f2bcc8633502018bc2b0eab12 = L.circleMarker(
+                [6.7442803, 101.4443611],
+                {"bubblingMouseEvents": true, "color": "gray", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "gray", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(feature_group_8a704e3e72e0e148b029f9949a2ebdb7);
+        
+    
+            circle_marker_f4af257f2bcc8633502018bc2b0eab12.bindTooltip(
+                `<div>
+                     <b>อิสลามศาสน์วิทยา</b><br>นักเรียน: 49 คน
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_16021c0af3fcec7be838a1692d053b53 = L.circleMarker(
+                [6.7602213, 101.3436831],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12, "stroke": true, "weight": 3}
+            ).addTo(feature_group_8a704e3e72e0e148b029f9949a2ebdb7);
+        
+    
+            circle_marker_16021c0af3fcec7be838a1692d053b53.bindTooltip(
+                `<div>
+                     <b>รัศมีสถาปนา</b><br>นักเรียน: 633 คน
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_e934a5414a300bb49e118ac289aec039 = L.circleMarker(
+                [6.6659631, 101.4127675],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(feature_group_8a704e3e72e0e148b029f9949a2ebdb7);
+        
+    
+            circle_marker_e934a5414a300bb49e118ac289aec039.bindTooltip(
+                `<div>
+                     <b>ธรรมพิทยาคาร</b><br>นักเรียน: 436 คน
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_79309d8b38e76ce45bca2f5c9c104ba6 = L.circleMarker(
+                [6.6670036, 101.4611388],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 18, "stroke": true, "weight": 3}
+            ).addTo(feature_group_8a704e3e72e0e148b029f9949a2ebdb7);
+        
+    
+            circle_marker_79309d8b38e76ce45bca2f5c9c104ba6.bindTooltip(
+                `<div>
+                     <b>อิสลามประชาสงเคราะห์</b><br>นักเรียน: 1,007 คน
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_fa70a8c2fef13b05bcaea99409116d0f = L.circleMarker(
+                [6.646917, 101.472344],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(feature_group_8a704e3e72e0e148b029f9949a2ebdb7);
+        
+    
+            circle_marker_fa70a8c2fef13b05bcaea99409116d0f.bindTooltip(
+                `<div>
+                     <b>อิสลามนิติวิทย์</b><br>นักเรียน: 174 คน
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_c75c31508d4c803a91c1e0922d94f5a2 = L.circleMarker(
+                [6.5895166, 101.3954451],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(feature_group_8a704e3e72e0e148b029f9949a2ebdb7);
+        
+    
+            circle_marker_c75c31508d4c803a91c1e0922d94f5a2.bindTooltip(
+                `<div>
+                     <b>ภักดีวิทยา</b><br>นักเรียน: 142 คน
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_058ef2b45e4db00e83f17abce2a80d03 = L.circleMarker(
+                [6.7006963, 101.4339148],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12, "stroke": true, "weight": 3}
+            ).addTo(feature_group_8a704e3e72e0e148b029f9949a2ebdb7);
+        
+    
+            circle_marker_058ef2b45e4db00e83f17abce2a80d03.bindTooltip(
+                `<div>
+                     <b>มัสญิดตะลุบัน</b><br>นักเรียน: 588 คน
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_810f4c9195f2a9432e0854717cf6167d = L.circleMarker(
+                [6.686206, 101.560259],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(feature_group_8a704e3e72e0e148b029f9949a2ebdb7);
+        
+    
+            circle_marker_810f4c9195f2a9432e0854717cf6167d.bindTooltip(
+                `<div>
+                     <b>อรุณศาสน์วิทยา</b><br>นักเรียน: 103 คน
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_a4fb8905729e04ff2eac4043b3b89338 = L.circleMarker(
+                [6.6858119, 101.5812642],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(feature_group_8a704e3e72e0e148b029f9949a2ebdb7);
+        
+    
+            circle_marker_a4fb8905729e04ff2eac4043b3b89338.bindTooltip(
+                `<div>
+                     <b>บำรุงมุสลีมีน</b><br>นักเรียน: 150 คน
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_0e169b2952c14f78c44c59f05e951bf9 = L.circleMarker(
+                [6.6610294, 101.6233178],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12, "stroke": true, "weight": 3}
+            ).addTo(feature_group_8a704e3e72e0e148b029f9949a2ebdb7);
+        
+    
+            circle_marker_0e169b2952c14f78c44c59f05e951bf9.bindTooltip(
+                `<div>
+                     <b>ลาลอวิทยา</b><br>นักเรียน: 610 คน
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_2df08a056b05e06b91a6a9ef1ee87dfe = L.circleMarker(
+                [6.6923609, 101.5933657],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12, "stroke": true, "weight": 3}
+            ).addTo(feature_group_8a704e3e72e0e148b029f9949a2ebdb7);
+        
+    
+            circle_marker_2df08a056b05e06b91a6a9ef1ee87dfe.bindTooltip(
+                `<div>
+                     <b>ศาสนศึกษา</b><br>นักเรียน: 619 คน
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_ffcfa6b3500468734949fa8561cf8b53 = L.circleMarker(
+                [6.6865628, 101.5867892],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(feature_group_8a704e3e72e0e148b029f9949a2ebdb7);
+        
+    
+            circle_marker_ffcfa6b3500468734949fa8561cf8b53.bindTooltip(
+                `<div>
+                     <b>สามารถดีวิทยา</b><br>นักเรียน: 341 คน
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_8cc5ad916fbb7ff8d20124dbd6cd03b5 = L.circleMarker(
+                [6.6887415, 101.6229638],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 18, "stroke": true, "weight": 3}
+            ).addTo(feature_group_8a704e3e72e0e148b029f9949a2ebdb7);
+        
+    
+            circle_marker_8cc5ad916fbb7ff8d20124dbd6cd03b5.bindTooltip(
+                `<div>
+                     <b>สายบุรีอิสลามวิทยา</b><br>นักเรียน: 1,537 คน
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_988b1c18c5c74ad06e6cf15fe2b9db5e = L.circleMarker(
+                [6.7044161, 101.6254274],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(feature_group_8a704e3e72e0e148b029f9949a2ebdb7);
+        
+    
+            circle_marker_988b1c18c5c74ad06e6cf15fe2b9db5e.bindTooltip(
+                `<div>
+                     <b>ฮั่วหนำมูลนิธิ</b><br>นักเรียน: 340 คน
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_2732509edcec3d4eb6c048acfb55027e = L.circleMarker(
+                [6.8676906, 101.3483367],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(feature_group_8a704e3e72e0e148b029f9949a2ebdb7);
+        
+    
+            circle_marker_2732509edcec3d4eb6c048acfb55027e.bindTooltip(
+                `<div>
+                     <b>มุสลิมพัฒนศาสตร์</b><br>นักเรียน: 256 คน
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_a5cb56c3e0651262e6b52477d8e692bc = L.circleMarker(
+                [6.8065813, 101.4255379],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12, "stroke": true, "weight": 3}
+            ).addTo(feature_group_8a704e3e72e0e148b029f9949a2ebdb7);
+        
+    
+            circle_marker_a5cb56c3e0651262e6b52477d8e692bc.bindTooltip(
+                `<div>
+                     <b>ส่งเสริมศาสน์</b><br>นักเรียน: 772 คน
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_996579a0f4659e0a3f04d639b89fef35 = L.circleMarker(
+                [6.7276497, 101.2841955],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 18, "stroke": true, "weight": 3}
+            ).addTo(feature_group_8a704e3e72e0e148b029f9949a2ebdb7);
+        
+    
+            circle_marker_996579a0f4659e0a3f04d639b89fef35.bindTooltip(
+                `<div>
+                     <b>อนุบาลแสงสันติปอซัน</b><br>นักเรียน: 1,065 คน
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_65aae9f1abed2c2c829a1f9704d5d066 = L.circleMarker(
+                [6.784727, 101.2950135],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 18, "stroke": true, "weight": 3}
+            ).addTo(feature_group_8a704e3e72e0e148b029f9949a2ebdb7);
+        
+    
+            circle_marker_65aae9f1abed2c2c829a1f9704d5d066.bindTooltip(
+                `<div>
+                     <b>ประสานวิทยามูลนิธิ</b><br>นักเรียน: 2,036 คน
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_d13caaf2b0c23601111e5214a1a868a4 = L.circleMarker(
+                [6.86978, 101.294836],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 18, "stroke": true, "weight": 3}
+            ).addTo(feature_group_8a704e3e72e0e148b029f9949a2ebdb7);
+        
+    
+            circle_marker_d13caaf2b0c23601111e5214a1a868a4.bindTooltip(
+                `<div>
+                     <b>ดารุลบารอกะฮฺ</b><br>นักเรียน: 1,207 คน
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_7a4f7c2e4120b9a25e4a88bde9d82efc = L.circleMarker(
+                [6.7121785, 101.268746],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12, "stroke": true, "weight": 3}
+            ).addTo(feature_group_8a704e3e72e0e148b029f9949a2ebdb7);
+        
+    
+            circle_marker_7a4f7c2e4120b9a25e4a88bde9d82efc.bindTooltip(
+                `<div>
+                     <b>อัลอิสลามียะห์วิทยามูลนิธิ</b><br>นักเรียน: 885 คน
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_2019761b943f473c286944d984c3aad5 = L.circleMarker(
+                [6.7182812, 101.0881166],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 18, "stroke": true, "weight": 3}
+            ).addTo(feature_group_8a704e3e72e0e148b029f9949a2ebdb7);
+        
+    
+            circle_marker_2019761b943f473c286944d984c3aad5.bindTooltip(
+                `<div>
+                     <b>นาวาวิทย์</b><br>นักเรียน: 1,296 คน
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_a13efe1673a43fb7c0cfcae2422c8c5a = L.circleMarker(
+                [6.8150044, 101.4066363],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(feature_group_8a704e3e72e0e148b029f9949a2ebdb7);
+        
+    
+            circle_marker_a13efe1673a43fb7c0cfcae2422c8c5a.bindTooltip(
+                `<div>
+                     <b>ปัญญาพัฒน์พิทยา</b><br>นักเรียน: 234 คน
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_1c341ba437e48817dfd1d975d5c92ddb = L.circleMarker(
+                [6.869516, 101.2504562],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(feature_group_8a704e3e72e0e148b029f9949a2ebdb7);
+        
+    
+            circle_marker_1c341ba437e48817dfd1d975d5c92ddb.bindTooltip(
+                `<div>
+                     <b>เชาวน์ปัญญา</b><br>นักเรียน: 295 คน
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_7b952514552b2369e74e22ea4d473153 = L.circleMarker(
+                [6.86975, 101.3625422],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(feature_group_8a704e3e72e0e148b029f9949a2ebdb7);
+        
+    
+            circle_marker_7b952514552b2369e74e22ea4d473153.bindTooltip(
+                `<div>
+                     <b>อัล-กุรอานและภาษากาลามุลลอฮ</b><br>นักเรียน: 116 คน
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_b12840eff717ec43b72fd84b5d59e4d0 = L.circleMarker(
+                [6.8032018, 101.1233065],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(feature_group_8a704e3e72e0e148b029f9949a2ebdb7);
+        
+    
+            circle_marker_b12840eff717ec43b72fd84b5d59e4d0.bindTooltip(
+                `<div>
+                     <b>อัลฮุสนียะห์อิสลามวิทยา</b><br>นักเรียน: 186 คน
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_2c66533d1726369ac577629912e24525 = L.circleMarker(
+                [6.755409, 101.2919707],
+                {"bubblingMouseEvents": true, "color": "gray", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "gray", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(feature_group_8a704e3e72e0e148b029f9949a2ebdb7);
+        
+    
+            circle_marker_2c66533d1726369ac577629912e24525.bindTooltip(
+                `<div>
+                     <b>อรุณอิสลามวิทยา</b><br>นักเรียน: 56 คน
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_2dfce9b22f1cd1a2d0877fa4cf0c2d3f = L.circleMarker(
+                [6.7487682, 101.3306697],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12, "stroke": true, "weight": 3}
+            ).addTo(feature_group_8a704e3e72e0e148b029f9949a2ebdb7);
+        
+    
+            circle_marker_2dfce9b22f1cd1a2d0877fa4cf0c2d3f.bindTooltip(
+                `<div>
+                     <b>อารยธรรมศาสน์</b><br>นักเรียน: 523 คน
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_49a5e5114c3738e165f5b0ad881c06cc = L.circleMarker(
+                [6.6075668, 101.3477745],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(feature_group_8a704e3e72e0e148b029f9949a2ebdb7);
+        
+    
+            circle_marker_49a5e5114c3738e165f5b0ad881c06cc.bindTooltip(
+                `<div>
+                     <b>ศานติวิทยาโสร่ง</b><br>นักเรียน: 335 คน
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_b04b4d4aed9482d741d97345db66f986 = L.circleMarker(
+                [6.7291913, 101.4269681],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(feature_group_8a704e3e72e0e148b029f9949a2ebdb7);
+        
+    
+            circle_marker_b04b4d4aed9482d741d97345db66f986.bindTooltip(
+                `<div>
+                     <b>มุสลิมสันติชน</b><br>นักเรียน: 250 คน
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_78b7cbad74f4ebfb8aa23173b9ad8f24 = L.circleMarker(
+                [6.7608546, 101.035252],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(feature_group_8a704e3e72e0e148b029f9949a2ebdb7);
+        
+    
+            circle_marker_78b7cbad74f4ebfb8aa23173b9ad8f24.bindTooltip(
+                `<div>
+                     <b>สาส์นวิทยา</b><br>นักเรียน: 304 คน
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_d880cb3a19ed6cb2de61c8168d4b989f = L.circleMarker(
+                [6.8516145, 101.2669466],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(feature_group_8a704e3e72e0e148b029f9949a2ebdb7);
+        
+    
+            circle_marker_d880cb3a19ed6cb2de61c8168d4b989f.bindTooltip(
+                `<div>
+                     <b>ปัตตานีวิทยา</b><br>นักเรียน: 244 คน
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_de66b82d37cfc985410b7ee6cbc5c1fc = L.circleMarker(
+                [6.7367018, 101.3438781],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(feature_group_8a704e3e72e0e148b029f9949a2ebdb7);
+        
+    
+            circle_marker_de66b82d37cfc985410b7ee6cbc5c1fc.bindTooltip(
+                `<div>
+                     <b>อรุณศาสน์ศึกษา</b><br>นักเรียน: 321 คน
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_258605c5a827bd518d5241790ada2e04 = L.circleMarker(
+                [6.6546196, 101.3026217],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12, "stroke": true, "weight": 3}
+            ).addTo(feature_group_8a704e3e72e0e148b029f9949a2ebdb7);
+        
+    
+            circle_marker_258605c5a827bd518d5241790ada2e04.bindTooltip(
+                `<div>
+                     <b>ศรีพัฒนศาสตร์</b><br>นักเรียน: 570 คน
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_d4860b77111604cf7142fb5ae0c4b243 = L.circleMarker(
+                [6.6618907, 101.3267995],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12, "stroke": true, "weight": 3}
+            ).addTo(feature_group_8a704e3e72e0e148b029f9949a2ebdb7);
+        
+    
+            circle_marker_d4860b77111604cf7142fb5ae0c4b243.bindTooltip(
+                `<div>
+                     <b>ปฏิบัติธรรมมูลนิธิ</b><br>นักเรียน: 794 คน
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_810b0df209f80373f34b38496056f0f0 = L.circleMarker(
+                [6.5959375, 101.3128125],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(feature_group_8a704e3e72e0e148b029f9949a2ebdb7);
+        
+    
+            circle_marker_810b0df209f80373f34b38496056f0f0.bindTooltip(
+                `<div>
+                     <b>ปัญญาธรรมอนุสรณ์</b><br>นักเรียน: 272 คน
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_911cfd1a20f2e3b75dadd04b4f338810 = L.circleMarker(
+                [6.8061861, 101.3397989],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(feature_group_8a704e3e72e0e148b029f9949a2ebdb7);
+        
+    
+            circle_marker_911cfd1a20f2e3b75dadd04b4f338810.bindTooltip(
+                `<div>
+                     <b>ทวีวิทยาอิสลาม</b><br>นักเรียน: 230 คน
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_ac566870c877c5900ad2ea5f56272221 = L.circleMarker(
+                [6.644467, 101.4722167],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12, "stroke": true, "weight": 3}
+            ).addTo(feature_group_8a704e3e72e0e148b029f9949a2ebdb7);
+        
+    
+            circle_marker_ac566870c877c5900ad2ea5f56272221.bindTooltip(
+                `<div>
+                     <b>สามัคคีธรรมวิทยา</b><br>นักเรียน: 944 คน
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_3055aa340aa5cc09b3ebb8334e21284a = L.circleMarker(
+                [6.6304107, 101.4414528],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12, "stroke": true, "weight": 3}
+            ).addTo(feature_group_8a704e3e72e0e148b029f9949a2ebdb7);
+        
+    
+            circle_marker_3055aa340aa5cc09b3ebb8334e21284a.bindTooltip(
+                `<div>
+                     <b>พัฒนศาสตร์</b><br>นักเรียน: 813 คน
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_e395ee306edf4183de9b7298368c90bc = L.circleMarker(
+                [6.8065866, 101.1110933],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(feature_group_8a704e3e72e0e148b029f9949a2ebdb7);
+        
+    
+            circle_marker_e395ee306edf4183de9b7298368c90bc.bindTooltip(
+                `<div>
+                     <b>ปัตตานีดารุสลาม</b><br>นักเรียน: 286 คน
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_be18bf89b5baf39ea2c89f91b9b264c7 = L.circleMarker(
+                [6.8806179, 101.2760057],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(feature_group_8a704e3e72e0e148b029f9949a2ebdb7);
+        
+    
+            circle_marker_be18bf89b5baf39ea2c89f91b9b264c7.bindTooltip(
+                `<div>
+                     <b>ปัญญาวิทย์</b><br>นักเรียน: 150 คน
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_229fd71a27405d601d39f12872fef9c9 = L.circleMarker(
+                [6.8341642, 101.0777215],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12, "stroke": true, "weight": 3}
+            ).addTo(feature_group_8a704e3e72e0e148b029f9949a2ebdb7);
+        
+    
+            circle_marker_229fd71a27405d601d39f12872fef9c9.bindTooltip(
+                `<div>
+                     <b>ส่งเสริมอิสลามศึกษา</b><br>นักเรียน: 652 คน
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_7441f7cce08fa0140dea25113ac1423b = L.circleMarker(
+                [6.6864755, 101.1390878],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(feature_group_8a704e3e72e0e148b029f9949a2ebdb7);
+        
+    
+            circle_marker_7441f7cce08fa0140dea25113ac1423b.bindTooltip(
+                `<div>
+                     <b>สันติศาสน์วิทยา</b><br>นักเรียน: 387 คน
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_d99b6ee1c4d4e421b573ab2c3d946b82 = L.circleMarker(
+                [6.869516, 101.2504562],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12, "stroke": true, "weight": 3}
+            ).addTo(feature_group_8a704e3e72e0e148b029f9949a2ebdb7);
+        
+    
+            circle_marker_d99b6ee1c4d4e421b573ab2c3d946b82.bindTooltip(
+                `<div>
+                     <b>อนุบาลปัญญาศาสน์</b><br>นักเรียน: 662 คน
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_61022a161c9d301301d44c7a298d2eba = L.circleMarker(
+                [6.7860593, 101.3396465],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12, "stroke": true, "weight": 3}
+            ).addTo(feature_group_8a704e3e72e0e148b029f9949a2ebdb7);
+        
+    
+            circle_marker_61022a161c9d301301d44c7a298d2eba.bindTooltip(
+                `<div>
+                     <b>ดารุลอูลูมวิทยา</b><br>นักเรียน: 566 คน
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_d83ea15b1d8148229f1d83e5c2cb0ba8 = L.circleMarker(
+                [6.6911422, 101.5523945],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(feature_group_8a704e3e72e0e148b029f9949a2ebdb7);
+        
+    
+            circle_marker_d83ea15b1d8148229f1d83e5c2cb0ba8.bindTooltip(
+                `<div>
+                     <b>อิสลามพัฒนปัญญา</b><br>นักเรียน: 176 คน
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_d902ab11ac4ab4d39de336fc130f6d60 = L.circleMarker(
+                [6.8885692, 101.3839277],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(feature_group_8a704e3e72e0e148b029f9949a2ebdb7);
+        
+    
+            circle_marker_d902ab11ac4ab4d39de336fc130f6d60.bindTooltip(
+                `<div>
+                     <b>สรรเสริญวิทยาคาร</b><br>นักเรียน: 253 คน
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_2947dc206dc7c8cc6a9c0b86af2b2457 = L.circleMarker(
+                [6.7372928, 101.125192],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(feature_group_8a704e3e72e0e148b029f9949a2ebdb7);
+        
+    
+            circle_marker_2947dc206dc7c8cc6a9c0b86af2b2457.bindTooltip(
+                `<div>
+                     <b>แสงปัญญาวิทยา</b><br>นักเรียน: 209 คน
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_078e1c2adbac208577796a7e02fe6153 = L.circleMarker(
+                [6.7494957, 101.6076092],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(feature_group_8a704e3e72e0e148b029f9949a2ebdb7);
+        
+    
+            circle_marker_078e1c2adbac208577796a7e02fe6153.bindTooltip(
+                `<div>
+                     <b>อนุบาลป่าทรายวิทยา</b><br>นักเรียน: 172 คน
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_ae15afcbf3846bafc8080e40e822e4fb = L.circleMarker(
+                [6.8661873, 101.3518904],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(feature_group_8a704e3e72e0e148b029f9949a2ebdb7);
+        
+    
+            circle_marker_ae15afcbf3846bafc8080e40e822e4fb.bindTooltip(
+                `<div>
+                     <b>อนุบาลเลิศประชา</b><br>นักเรียน: 325 คน
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_62d69e8e89006232bd8e9fed6516e0da = L.circleMarker(
+                [6.7640015, 101.1377556],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(feature_group_8a704e3e72e0e148b029f9949a2ebdb7);
+        
+    
+            circle_marker_62d69e8e89006232bd8e9fed6516e0da.bindTooltip(
+                `<div>
+                     <b>อรุณวิทย์พิทยานุสรณ์</b><br>นักเรียน: 157 คน
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_ba354fde344f2ceba07983bb3458532e = L.circleMarker(
+                [6.782894, 101.327671],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(feature_group_8a704e3e72e0e148b029f9949a2ebdb7);
+        
+    
+            circle_marker_ba354fde344f2ceba07983bb3458532e.bindTooltip(
+                `<div>
+                     <b>แสงเมตตาวิทยา</b><br>นักเรียน: 242 คน
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_662839bc30ecc3ac5f6e32e4e10e7cdd = L.circleMarker(
+                [6.828057, 101.3885001],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12, "stroke": true, "weight": 3}
+            ).addTo(feature_group_8a704e3e72e0e148b029f9949a2ebdb7);
+        
+    
+            circle_marker_662839bc30ecc3ac5f6e32e4e10e7cdd.bindTooltip(
+                `<div>
+                     <b>ยะหริ่งวิทยา</b><br>นักเรียน: 531 คน
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_91276bb890ef3f61fa67219080559e0c = L.circleMarker(
+                [6.7628259, 101.4694496],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(feature_group_8a704e3e72e0e148b029f9949a2ebdb7);
+        
+    
+            circle_marker_91276bb890ef3f61fa67219080559e0c.bindTooltip(
+                `<div>
+                     <b>นัซรีวิทยา</b><br>นักเรียน: 262 คน
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_b78daf1e5315c1e0f7e5eac1cd3b2b23 = L.circleMarker(
+                [6.7757681, 101.5119918],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(feature_group_8a704e3e72e0e148b029f9949a2ebdb7);
+        
+    
+            circle_marker_b78daf1e5315c1e0f7e5eac1cd3b2b23.bindTooltip(
+                `<div>
+                     <b>อัลเอากอฟอิสลามวิทยา</b><br>นักเรียน: 143 คน
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_dc30927bf7cc7cc7205f062aef1c2995 = L.circleMarker(
+                [6.6833431, 101.2659498],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(feature_group_8a704e3e72e0e148b029f9949a2ebdb7);
+        
+    
+            circle_marker_dc30927bf7cc7cc7205f062aef1c2995.bindTooltip(
+                `<div>
+                     <b>นูรุลมูฮัมมาดี</b><br>นักเรียน: 113 คน
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_8161f6a53bb3e58b5d125aaf1c2aed60 = L.circleMarker(
+                [6.5955743, 101.520809],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(feature_group_8a704e3e72e0e148b029f9949a2ebdb7);
+        
+    
+            circle_marker_8161f6a53bb3e58b5d125aaf1c2aed60.bindTooltip(
+                `<div>
+                     <b>สายธารเมตตาธรรมวิทยา</b><br>นักเรียน: 169 คน
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_0d7107035491e544a0fa1a72f8c53097 = L.circleMarker(
+                [6.8528266, 101.2436478],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12, "stroke": true, "weight": 3}
+            ).addTo(feature_group_8a704e3e72e0e148b029f9949a2ebdb7);
+        
+    
+            circle_marker_0d7107035491e544a0fa1a72f8c53097.bindTooltip(
+                `<div>
+                     <b>อิบนูอัฟฟานบูรณวิทย์</b><br>นักเรียน: 799 คน
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_21fa17470ba845f55959642ea9aec71a = L.circleMarker(
+                [6.738824, 101.1567139],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(feature_group_8a704e3e72e0e148b029f9949a2ebdb7);
+        
+    
+            circle_marker_21fa17470ba845f55959642ea9aec71a.bindTooltip(
+                `<div>
+                     <b>พิทักษ์ศาสตร์อนุสรณ์</b><br>นักเรียน: 155 คน
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_8fbde9f0b82a6b94c7343900cb5d41f9 = L.circleMarker(
+                [6.9307251, 101.3143883],
+                {"bubblingMouseEvents": true, "color": "gray", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "gray", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(feature_group_8a704e3e72e0e148b029f9949a2ebdb7);
+        
+    
+            circle_marker_8fbde9f0b82a6b94c7343900cb5d41f9.bindTooltip(
+                `<div>
+                     <b>อาลาวีศึกษาศาสน์</b><br>นักเรียน: 65 คน
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_3d81d893393abc800e0a615eac9619b1 = L.circleMarker(
+                [6.8701804, 101.2336139],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(feature_group_8a704e3e72e0e148b029f9949a2ebdb7);
+        
+    
+            circle_marker_3d81d893393abc800e0a615eac9619b1.bindTooltip(
+                `<div>
+                     <b>อาลาวีวิทยพัฒน์</b><br>นักเรียน: 107 คน
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_9c71a7f93249af8bfc07f04a1aaec5c9 = L.circleMarker(
+                [6.7452873, 101.3801482],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12, "stroke": true, "weight": 3}
+            ).addTo(feature_group_8a704e3e72e0e148b029f9949a2ebdb7);
+        
+    
+            circle_marker_9c71a7f93249af8bfc07f04a1aaec5c9.bindTooltip(
+                `<div>
+                     <b>อิสลามพัฒนา</b><br>นักเรียน: 586 คน
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_3372211fad366c3be19d20aa39914fe9 = L.circleMarker(
+                [6.8530304, 101.3603279],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(feature_group_8a704e3e72e0e148b029f9949a2ebdb7);
+        
+    
+            circle_marker_3372211fad366c3be19d20aa39914fe9.bindTooltip(
+                `<div>
+                     <b>นูรุลอิสลามภูมีวิทยา</b><br>นักเรียน: 442 คน
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_b6a1d14601460b73d3c446dd90026284 = L.circleMarker(
+                [6.869516, 101.2504562],
+                {"bubblingMouseEvents": true, "color": "gray", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "gray", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(feature_group_8a704e3e72e0e148b029f9949a2ebdb7);
+        
+    
+            circle_marker_b6a1d14601460b73d3c446dd90026284.bindTooltip(
+                `<div>
+                     <b>อิสลามอนุสรณ์วิทยา</b><br>นักเรียน: 56 คน
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_415e2baf9377c1507ddf8b2b3b606f3a = L.circleMarker(
+                [6.7751435, 101.4406442],
+                {"bubblingMouseEvents": true, "color": "gray", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "gray", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(feature_group_8a704e3e72e0e148b029f9949a2ebdb7);
+        
+    
+            circle_marker_415e2baf9377c1507ddf8b2b3b606f3a.bindTooltip(
+                `<div>
+                     <b>อนุสรณ์พัฒนา</b><br>นักเรียน: 48 คน
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_6d47d7cdf2d9bc6a4ebebcecd4bafd0c = L.circleMarker(
+                [6.7029968, 101.2531688],
+                {"bubblingMouseEvents": true, "color": "gray", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "gray", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(feature_group_8a704e3e72e0e148b029f9949a2ebdb7);
+        
+    
+            circle_marker_6d47d7cdf2d9bc6a4ebebcecd4bafd0c.bindTooltip(
+                `<div>
+                     <b>เจริญอรุณศาสตร์รัศมี</b><br>นักเรียน: 44 คน
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_8ed178023ce092f2290cc9ccdd81e9fb = L.circleMarker(
+                [6.869516, 101.2504562],
+                {"bubblingMouseEvents": true, "color": "gray", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "gray", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(feature_group_8a704e3e72e0e148b029f9949a2ebdb7);
+        
+    
+            circle_marker_8ed178023ce092f2290cc9ccdd81e9fb.bindTooltip(
+                `<div>
+                     <b>อนุสรณ์ศาสน์</b><br>นักเรียน: 69 คน
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_42c57f64ec0b83b89d346f88892496b8 = L.circleMarker(
+                [6.869516, 101.2504562],
+                {"bubblingMouseEvents": true, "color": "gray", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "gray", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(feature_group_8a704e3e72e0e148b029f9949a2ebdb7);
+        
+    
+            circle_marker_42c57f64ec0b83b89d346f88892496b8.bindTooltip(
+                `<div>
+                     <b>อนุบาลเพ็นซิลอนุสรณ์</b><br>นักเรียน: 8 คน
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            feature_group_8a704e3e72e0e148b029f9949a2ebdb7.addTo(map_da41290783ce6e17845793507d471cbf);
+        
+    
+            var layer_control_09a00572cf1440ecca51b0638ecf6d46_layers = {
+                base_layers : {
+                    "openstreetmap" : tile_layer_a45cdf121069e4db7503343d19991f5a,
+                },
+                overlays :  {
+                    "macro_element_5dba45e043a6291acaccf5a5ec8c69ab" : heat_map_5dba45e043a6291acaccf5a5ec8c69ab,
+                    "School Locations (Size \u0026 Color by Student Count)" : feature_group_8a704e3e72e0e148b029f9949a2ebdb7,
+                },
+            };
+            let layer_control_09a00572cf1440ecca51b0638ecf6d46 = L.control.layers(
+                layer_control_09a00572cf1440ecca51b0638ecf6d46_layers.base_layers,
+                layer_control_09a00572cf1440ecca51b0638ecf6d46_layers.overlays,
+                {
+  "position": "topright",
+  "collapsed": true,
+  "autoZIndex": true,
+}
+            ).addTo(map_da41290783ce6e17845793507d471cbf);
+
+        
+</script>
+</html>
